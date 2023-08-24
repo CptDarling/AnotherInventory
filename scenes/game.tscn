@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://eves1vdi3dfi"]
+[gd_scene load_steps=8 format=3 uid="uid://eves1vdi3dfi"]
 
 [ext_resource type="PackedScene" uid="uid://dhdaug5x02ndk" path="res://scenes/main.tscn" id="1_rrr86"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_smky8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bk0on6yv4u3fm" path="res://inventory/inventory.tscn" id="3_dn40u"]
 [ext_resource type="Resource" uid="uid://b85jbhf1o72uq" path="res://inv_test.tres" id="4_ji03g"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="5_g5xf8"]
+[ext_resource type="PackedScene" uid="uid://n06lx41e8d6t" path="res://inventory/slot.tscn" id="7_4cepg"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_smky8")
@@ -33,5 +34,11 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("7_4cepg")]
+visible = false
+modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 
 [connection signal="toggle_inventory" from="Player" to="." method="_on_player_toggle_inventory"]
