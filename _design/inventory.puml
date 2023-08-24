@@ -1,0 +1,52 @@
+@startuml Inventory System
+title Inventory System
+
+namespace Game {
+
+  class Main
+
+  class Game {
+    void _ready()
+    void _on_player_toggle_inventory()
+  }
+}
+
+Game.Game --> Player.InventoryData
+Game.Game --> UI.InventoryInterface
+
+namespace Player {
+
+  class InventoryData << Resource >> {
+    +slot_datas[] : SlotData
+  }
+
+  class SlotData << Resource >> {
+    -{static} MAX_STACK_SIZE: int
+    +item_data : ItemData
+    +quantity : int
+    +set_quantity(value : int)
+  }
+
+  class ItemData << Resource >> {
+    +name : String
+    +description : String
+    +stackable : bool
+    +texture: AtlasTexture
+  }
+
+  InventoryData --> SlotData
+  SlotData --> ItemData
+}
+
+namespace UI {
+  class InventoryInterface
+  class Inventory
+  class Slot
+  InventoryInterface --> Inventory
+  Inventory --> Slot
+}
+
+Player.InventoryData ..> UI.InventoryInterface
+UI.Slot ..> Player.InventoryData
+
+@enduml;
