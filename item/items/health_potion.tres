@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=4 format=3 uid="uid://xvmg64jwyc4p"]
+
+[ext_resource type="Script" path="res://item/item_data_consumable.gd" id="1_8sais"]
+[ext_resource type="Texture2D" uid="uid://dc7ipro5ejexj" path="res://assets/#1 - Transparent Icons.png" id="2_yq7cj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2box"]
+atlas = ExtResource("2_yq7cj")
+region = Rect2(0, 288, 32, 32)
+
+[resource]
+script = ExtResource("1_8sais")
+heal_value = 1
+name = "Health Potion"
+description = "Smells like strawberries"
+stackable = true
+texture = SubResource("AtlasTexture_m2box")

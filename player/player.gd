@@ -19,6 +19,10 @@ const JUMP_VELOCITY = 4.5
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var health: int = 5:
+	set(value):
+		health = value
+
 ## Signal to tell the inventory UI to change its visibility and mouse mode.
 signal toggle_inventory()
 
@@ -26,6 +30,7 @@ signal toggle_inventory()
 @onready var interact_ray: RayCast3D = $Camera3D/InteractRay
 
 func _ready() -> void:
+	PlayerManager.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -75,6 +80,10 @@ func _physics_process(delta: float) -> void:
 func interact() -> void:
 	if interact_ray.is_colliding():
 		interact_ray.get_collider().player_interact()
+
+
+func heal(heal_value: int) -> void:
+	health += heal_value
 
 
 ## Get the position of where to drop an inventory item
