@@ -1,4 +1,11 @@
 extends Resource
+## Brief description: This is the data system that holds an inventory.
+##
+## Detailed description: A more complete description of this class.
+##
+## @tutorial:            https://the/tutorial1/url.com
+## @tutorial(Tutorial2): https://the/tutorial2/url.com
+
 class_name InventoryData
 
 signal inventory_updated(
@@ -11,11 +18,8 @@ signal inventory_interact(
 	button: int,
 	)
 
+## An array of SlotData objects.
 @export var slot_datas: Array[SlotData]
-
-
-func on_slot_clicked(index: int, button: int) -> void:
-	inventory_interact.emit(self, index, button)
 
 
 func grab_slot_data(index: int) -> SlotData:
@@ -43,6 +47,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	return return_slot_data
 
 
+## Drops a single item from the grabbed slot into this slot.
 func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data = slot_datas[index]
 
@@ -58,3 +63,26 @@ func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 
 	return null
 
+
+func pick_up_slot_data(slot_data: SlotData) -> bool:
+
+	# Find a used slot to drop the slot data into where
+	# the items are the same and they can be stacked.
+	for index in slot_datas.size():
+		if slot_datas[index] and slot_datas[index].can_fully_merge_with(slot_data):
+			slot_datas[index].fully_merge_with(slot_data)
+			inventory_updated.emit(self)
+			return true
+
+	# Find an empty slot to drop the slot data into
+	for index in slot_datas.size():
+		if not slot_datas[index]:
+			slot_datas[index] = slot_data
+			inventory_updated.emit(self)
+			return true
+
+	return false
+
+
+func on_slot_clicked(index: int, button: int) -> void:
+	inventory_interact.emit(self, index, button)

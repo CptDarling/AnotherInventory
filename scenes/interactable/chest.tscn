@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://danxspp6h8e0w"]
+
+[ext_resource type="PackedScene" uid="uid://byiby41chqdjo" path="res://ui/interaction_notice.tscn" id="1_mrmrm"]
+[ext_resource type="Script" path="res://scenes/interactable/chest.gd" id="1_xfi34"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42vmj"]
+albedo_color = Color(0.458824, 0.905882, 0.603922, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xlp2l"]
+material = SubResource("StandardMaterial3D_42vmj")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_polba"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="Chest" type="StaticBody3D" groups=["external_inventory"]]
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("1_xfi34")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_xlp2l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_polba")
+
+[node name="InteractionNotice" parent="." instance=ExtResource("1_mrmrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09081, 0)

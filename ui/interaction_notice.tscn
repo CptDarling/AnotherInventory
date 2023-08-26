@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://byiby41chqdjo"]
+
+[node name="InteractionNotice" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+billboard = 1
+text = "E - Interact"

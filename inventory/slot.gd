@@ -1,4 +1,11 @@
 extends PanelContainer
+## A brief description of the class's role and functionality.
+##
+## The description of the script, what it can do,
+## and any further detail.
+##
+## @tutorial:            https://the/tutorial1/url.com
+## @tutorial(Tutorial2): https://the/tutorial2/url.com
 
 signal slot_clicked(index: int, button: int)
 
