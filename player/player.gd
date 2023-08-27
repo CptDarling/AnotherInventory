@@ -9,6 +9,7 @@ extends CharacterBody3D
 
 ## Data object for the inventory
 @export var inventory_data: InventoryData
+@export var inventory_data_equip: InventoryDataEquip
 
 ## Speed of movement in 3D space
 const SPEED = 5.0
