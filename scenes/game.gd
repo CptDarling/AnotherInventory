@@ -1,4 +1,6 @@
 extends Node
+class_name Game
+
 ## A brief description of the class's role and functionality.
 ##
 ## The description of the script, what it can do,
@@ -9,8 +11,8 @@ extends Node
 
 const PickUp = preload("res://item/pick_up/pick_up.tscn")
 
-@onready var player: CharacterBody3D = $Player
-@onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var player: Player = $Player
+@onready var inventory_interface: InventoryInterface = $UI/InventoryInterface
 @onready var hot_bar_inventory: PanelContainer = $UI/HotBarInventory
 
 func _ready() -> void:

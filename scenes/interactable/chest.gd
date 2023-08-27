@@ -1,4 +1,6 @@
 extends StaticBody3D
+class_name Chest
+
 ## An interactable treasure chest.
 
 signal toggle_inventory(external_inventory_owner)

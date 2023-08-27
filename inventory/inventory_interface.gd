@@ -1,4 +1,6 @@
 extends Control
+class_name InventoryInterface
+
 ## A brief description of the class's role and functionality.
 ##
 ## The description of the script, what it can do,
@@ -15,13 +17,13 @@ var grabbed_slot_data: SlotData:
 		grabbed_slot_data = value
 		update_grabbed_slot()
 
-var external_inventory_owner
+var external_inventory_owner: PhysicsBody3D
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var external_inventory: PanelContainer = $ExternalInventory
 @onready var equip_inventory: PanelContainer = $EquipInventory
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if grabbed_slot.visible:
 		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
 

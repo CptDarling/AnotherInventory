@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name HotBarInventory
 
 signal hot_bar_use(index: int)
 
