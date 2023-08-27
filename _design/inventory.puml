@@ -3,11 +3,12 @@ title Inventory System
 
 namespace Game {
 
-  class Main
+  class World
 
   class Game {
     void _ready()
-    void _on_player_toggle_inventory()
+    void _on_toggle_inventory()
+    void _on_inventory_interface_drop_slot_data()
   }
 }
 
@@ -18,6 +19,12 @@ namespace Player {
 
   class InventoryData << Resource >> {
     +slot_datas[] : SlotData
+    +grab_slot_data()
+    +drop_slot_data()
+    +drop_single_slot_data()
+    +pick_up_slot_data()
+    +use_slot_data()
+    +on_slot_clicked()
   }
 
   class SlotData << Resource >> {
@@ -39,14 +46,34 @@ namespace Player {
 }
 
 namespace UI {
-  class InventoryInterface
-  class Inventory
-  class Slot
+  class InventoryInterface {
+    +player_inventory: Inventory
+    +external_inventory: Inventory
+    +equip_inventory: Inventory
+    +set_player_inventory_data(inventory_data: InventoryData)
+    +set_equip_inventory_data(inventory_data: InventoryData)
+    +set_external_inventory(_external_inventory_owner: PhysicsBody3D)
+    +clear_external_inventory()
+    +update_grabbed_slot()
+    +_on_inventory_interact(inventory_data: InventoryData, index: int, button: int)
+  }
+  class PlayerInventory << Inventory >>
+  class HotBarInventory << Inventory >>
+  class EquipInventory << Inventory >>
+  class Inventory {
+    +set_inventory_data(inventory_data: InventoryData)
+    +clear_inventory_data(inventory_data: InventoryData)
+  }
+  class Slot {
+    +set_slot_data(slot_data: SlotData)
+  }
   InventoryInterface --> Inventory
   Inventory --> Slot
 }
 
-Player.InventoryData ..> UI.InventoryInterface
-UI.Slot ..> Player.InventoryData
-
+Player.InventoryData ..> UI.InventoryInterface: inventory_interact
+UI.Slot ..> Player.InventoryData: slot_clicked
+Player.InventoryData ..>  UI.Inventory: inventory_updated
+Player.InventoryData ..>  UI.HotBarInventory: inventory_updated
+UI.HotBarInventory ..> Player.InventoryData: hot_bar_use
 @enduml;

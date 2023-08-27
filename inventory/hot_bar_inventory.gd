@@ -1,9 +1,7 @@
 class_name HotBarInventory
-extends PanelContainer
+extends Inventory
 
 signal hot_bar_use(index: int)
-
-const Slot = preload("res://inventory/slot.tscn")
 
 @onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer
 

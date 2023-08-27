@@ -43,7 +43,7 @@ func set_equip_inventory_data(inventory_data: InventoryData) -> void:
 	equip_inventory.set_inventory_data(inventory_data)
 
 
-func set_external_inventory(_external_inventory_owner) -> void:
+func set_external_inventory(_external_inventory_owner: PhysicsBody3D) -> void:
 	external_inventory_owner = _external_inventory_owner
 	var inventory_data = external_inventory_owner.inventory_data
 
