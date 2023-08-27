@@ -1,5 +1,5 @@
-extends Node
 class_name Game
+extends Node
 
 ## A brief description of the class's role and functionality.
 ##

@@ -1,5 +1,5 @@
-extends ItemData
 class_name ItemDataConsumable
+extends ItemData
 
 @export var heal_value: int
 

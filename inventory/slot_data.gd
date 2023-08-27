@@ -1,3 +1,4 @@
+class_name SlotData
 extends Resource
 ## A brief description of the class's role and functionality.
 ##
@@ -7,7 +8,6 @@ extends Resource
 ## @tutorial:            https://the/tutorial1/url.com
 ## @tutorial(Tutorial2): https://the/tutorial2/url.com
 
-class_name SlotData
 
 const MAX_STACK_SIZE: int = 99
 

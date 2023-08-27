@@ -1,5 +1,5 @@
-extends PanelContainer
 class_name Inventory
+extends PanelContainer
 
 ## A brief description of the class's role and functionality.
 ##

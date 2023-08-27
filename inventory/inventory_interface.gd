@@ -1,5 +1,5 @@
-extends Control
 class_name InventoryInterface
+extends Control
 
 ## A brief description of the class's role and functionality.
 ##

@@ -1,5 +1,5 @@
-extends Node
 #class_name PlayerManager
+extends Node
 
 ## A singleton.
 

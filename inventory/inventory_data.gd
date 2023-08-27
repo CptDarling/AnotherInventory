@@ -1,3 +1,4 @@
+class_name InventoryData
 extends Resource
 ## Brief description: This is the data system that holds an inventory.
 ##
@@ -6,7 +7,6 @@ extends Resource
 ## @tutorial:            https://the/tutorial1/url.com
 ## @tutorial(Tutorial2): https://the/tutorial2/url.com
 
-class_name InventoryData
 
 signal inventory_updated(
 	inventory_data: InventoryData,

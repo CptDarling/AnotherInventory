@@ -1,5 +1,5 @@
-extends RigidBody3D
 class_name PickUp
+extends RigidBody3D
 
 @export var slot_data: SlotData
 

@@ -1,5 +1,5 @@
-extends CharacterBody3D
 class_name Player
+extends CharacterBody3D
 
 ## A brief description of the class's role and functionality.
 ##

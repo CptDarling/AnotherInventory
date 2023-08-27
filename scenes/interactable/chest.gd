@@ -1,5 +1,5 @@
-extends StaticBody3D
 class_name Chest
+extends StaticBody3D
 
 ## An interactable treasure chest.
 

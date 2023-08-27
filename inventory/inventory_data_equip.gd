@@ -1,5 +1,5 @@
-extends InventoryData
 class_name InventoryDataEquip
+extends InventoryData
 
 ## An inventory that only holds equipable items.
 

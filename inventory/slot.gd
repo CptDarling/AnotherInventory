@@ -1,5 +1,5 @@
-extends PanelContainer
 class_name Slot
+extends PanelContainer
 
 ## A brief description of the class's role and functionality.
 ##
