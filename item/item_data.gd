@@ -7,5 +7,5 @@ class_name ItemData
 @export var texture: AtlasTexture
 
 ## Simulate using something. Overidden in subclass.
-func use(target) -> void:
+func use(_target) -> void:
 	pass

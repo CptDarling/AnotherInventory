@@ -1,4 +1,6 @@
 extends CharacterBody3D
+class_name Player
+
 ## A brief description of the class's role and functionality.
 ##
 ## The description of the script, what it can do,
@@ -44,7 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 ## Use for keyboard events.
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_key_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 
