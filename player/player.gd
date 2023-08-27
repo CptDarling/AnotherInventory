@@ -25,6 +25,12 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var health: int = 5:
 	set(value):
 		health = value
+		print("Player health ", health)
+
+var armour_class: int = 1:
+	set(value):
+		armour_class = value
+		print("Player armour class ", armour_class)
 
 ## Signal to tell the inventory UI to change its visibility and mouse mode.
 signal toggle_inventory()
@@ -35,6 +41,8 @@ signal toggle_inventory()
 func _ready() -> void:
 	PlayerManager.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	inventory_data_equip.item_equipped.connect(_on_item_equipped)
+	inventory_data_equip.item_unequipped.connect(_on_item_unequipped)
 
 
 ## Use for mouse events.
@@ -93,3 +101,11 @@ func heal(heal_value: int) -> void:
 func get_drop_position() -> Vector3:
 	var direction = -camera.global_transform.basis.z
 	return camera.global_position + direction
+
+
+func _on_item_equipped(item_data_equip: ItemDataEquip) -> void:
+	self.armour_class += item_data_equip.defence
+
+
+func _on_item_unequipped(item_data_equip: ItemDataEquip) -> void:
+	self.armour_class -= item_data_equip.defence
