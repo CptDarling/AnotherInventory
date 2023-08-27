@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqo6km32yxa7b"]
+
+[ext_resource type="PackedScene" uid="uid://ckwtxl6u6uffd" path="res://inventory/inventory_interface.tscn" id="1_v0dtu"]
+[ext_resource type="PackedScene" uid="uid://7p3yq7mqyymv" path="res://inventory/hot_bar_inventory.tscn" id="4_4u02c"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="InventoryInterface" parent="." instance=ExtResource("1_v0dtu")]
+
+[node name="HotBarInventory" parent="." instance=ExtResource("4_4u02c")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 430.0
+offset_bottom = 90.0

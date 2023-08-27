@@ -1,20 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://eves1vdi3dfi"]
+[gd_scene load_steps=17 format=3 uid="uid://eves1vdi3dfi"]
 
 [ext_resource type="PackedScene" uid="uid://dhdaug5x02ndk" path="res://scenes/world.tscn" id="1_rrr86"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_smky8"]
 [ext_resource type="PackedScene" uid="uid://b4dqwnta5urp3" path="res://player/player.tscn" id="2_m0wsl"]
-[ext_resource type="PackedScene" uid="uid://bk0on6yv4u3fm" path="res://inventory/inventory.tscn" id="3_dn40u"]
 [ext_resource type="Resource" uid="uid://b85jbhf1o72uq" path="res://inv_test.tres" id="4_ji03g"]
 [ext_resource type="Script" path="res://inventory/inventory_data_equip.gd" id="5_dgm08"]
-[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="5_g5xf8"]
 [ext_resource type="PackedScene" uid="uid://danxspp6h8e0w" path="res://scenes/interactable/chest.tscn" id="5_oymwu"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="6_7b1ga"]
-[ext_resource type="PackedScene" uid="uid://n06lx41e8d6t" path="res://inventory/slot.tscn" id="7_4cepg"]
 [ext_resource type="Resource" uid="uid://djrlbg8sy07ow" path="res://item/items/blue_book.tres" id="7_ou1x5"]
 [ext_resource type="Script" path="res://inventory/slot_data.gd" id="8_0a684"]
+[ext_resource type="PackedScene" uid="uid://dqo6km32yxa7b" path="res://ui/ui.tscn" id="12_88mix"]
 [ext_resource type="PackedScene" uid="uid://bk3agj3ageflh" path="res://item/pick_up/pick_up.tscn" id="12_hykso"]
 [ext_resource type="Resource" uid="uid://bkiwaxf1rnc7b" path="res://item/items/apple.tres" id="13_vsg64"]
-[ext_resource type="PackedScene" uid="uid://7p3yq7mqyymv" path="res://inventory/hot_bar_inventory.tscn" id="14_snmel"]
 
 [sub_resource type="Resource" id="Resource_sufi8"]
 script = ExtResource("5_dgm08")
@@ -51,55 +48,6 @@ inventory_data = SubResource("Resource_jjk3s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51222, 1.6524, -4.52567)
 slot_data = SubResource("Resource_4fne8")
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_g5xf8")
-
-[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("3_dn40u")]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
-
-[node name="EquipInventory" parent="UI/InventoryInterface" instance=ExtResource("3_dn40u")]
-layout_mode = 0
-offset_left = 450.0
-offset_top = 10.0
-offset_right = 490.0
-offset_bottom = 50.0
-
-[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("3_dn40u")]
-visible = false
-layout_mode = 0
-offset_left = 685.0
-offset_top = 215.0
-offset_right = 725.0
-offset_bottom = 255.0
-
-[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("7_4cepg")]
-visible = false
-modulate = Color(1, 1, 1, 0.501961)
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="HotBarInventory" parent="UI" instance=ExtResource("14_snmel")]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 430.0
-offset_bottom = 90.0
+[node name="UI" parent="." instance=ExtResource("12_88mix")]
 
 [connection signal="toggle_inventory" from="Player" to="." method="_on_toggle_inventory"]
-[connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
-[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
-[connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]

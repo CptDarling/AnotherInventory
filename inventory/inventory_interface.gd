@@ -18,10 +18,11 @@ var grabbed_slot_data: SlotData:
 		update_grabbed_slot()
 
 var external_inventory_owner: PhysicsBody3D
-@onready var player_inventory: PanelContainer = $PlayerInventory
-@onready var grabbed_slot: PanelContainer = $GrabbedSlot
-@onready var external_inventory: PanelContainer = $ExternalInventory
-@onready var equip_inventory: PanelContainer = $EquipInventory
+
+@onready var player_inventory: Inventory = $PlayerInventory
+@onready var external_inventory: Inventory = $ExternalInventory
+@onready var equip_inventory: Inventory = $EquipInventory
+@onready var grabbed_slot: Slot = $GrabbedSlot
 
 func _physics_process(_delta: float) -> void:
 	if grabbed_slot.visible:
