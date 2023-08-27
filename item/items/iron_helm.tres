@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bbwh5hob6se7d"]
+
+[ext_resource type="Script" path="res://item/item_data_equip.gd" id="1_wqulc"]
+[ext_resource type="Texture2D" uid="uid://dc7ipro5ejexj" path="res://assets/#1 - Transparent Icons.png" id="2_o5d81"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aad4e"]
+atlas = ExtResource("2_o5d81")
+region = Rect2(96, 224, 32, 32)
+
+[resource]
+script = ExtResource("1_wqulc")
+defence = 1
+name = "Iron Helm"
+description = "Will protect your noggin"
+stackable = false
+texture = SubResource("AtlasTexture_aad4e")
